@@ -1,4 +1,4 @@
-// PRIMEIRO PROGRAMA EM C++
+
 #include <string>
 using namespace std;
 
@@ -49,6 +49,14 @@ int main()
     printf("\nNOTA1 É = %7.2f",vmedia.getNota1());
     printf("\nNOTA2 É = %7.2f",vmedia.getNota2());
     printf("\nMEDIA É = %7.2f",vmedia.getMedia());
+    if(vmedia.getMedia()>= 5)
+    {
+        printf("\n VOCE ESTA APROVADO");
+    }
+    else
+    {
+        printf("\n VOCE ESTA REPROVADO");
+    }
     
     return 0;
 }
