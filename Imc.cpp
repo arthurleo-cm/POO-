@@ -33,7 +33,7 @@ int main()
     float p,a,imc;
     
     IMC vimc;
-    printf("\nREALIZANDO O CALCULO DE IMC");
+    printf("\nFAZENDO CALCULO DE IMC");
     printf("\nDigite o seu peso:  ");
     scanf("%f",&p);
     printf("\nDigite a sua altura:  ");
@@ -44,29 +44,20 @@ int main()
     
     if(vimc.getIMC() < 18.5)
     {
-        printf("Você está abaixo do peso")
+        printf("\nVocê está abaixo do peso");
     }
-    else if(){}
-    
-    
-    if(vimc.getIMC()<18.5)
+    else if(vimc.getIMC() >= 18.5 && vimc.getIMC() <= 24.9)
     {
-        printf("Você está abaixo do peso ");
+        printf("\nVocê está com o seu peso normal");
     }
-    if(vimc.getIMC() >= 18.5 && vimc.getIMC() <= 24.9)
+    else if(vimc.getIMC() >= 25 && vimc.getIMC() <= 29.9)
     {
-        printf("Você está com o seu peso normal");
+        printf("\nVocê está com sobrepeso");
     }
-    if(vimc.getIMC() >= 25 && vimc.getIMC() <= 29.9)
+    else
     {
-        printf("Você está com sobrepeso");
+        printf("\nVocê está com Obesidade");
     }
-    if(vimc.getIMC()>= 30.00)
-    {
-        printf("Você está com Obesidade");
-    }
-    
-    
     
     
 }
