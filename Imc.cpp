@@ -42,15 +42,29 @@ int main()
     vimc.calcular();
     printf("\nO IMC É = %7.2f",vimc.getIMC());
     
-    if(vimc.getIMC()<=18.5)
+    if(vimc.getIMC() < 18.5)
     {
-        printf("VOCÊ ESTÁ ABAIXO DO PESO ");
+        printf("Você está abaixo do peso")
     }
-    else
-    {
-        printf("TESTE");
-    }
+    else if(){}
     
+    
+    if(vimc.getIMC()<18.5)
+    {
+        printf("Você está abaixo do peso ");
+    }
+    if(vimc.getIMC() >= 18.5 && vimc.getIMC() <= 24.9)
+    {
+        printf("Você está com o seu peso normal");
+    }
+    if(vimc.getIMC() >= 25 && vimc.getIMC() <= 29.9)
+    {
+        printf("Você está com sobrepeso");
+    }
+    if(vimc.getIMC()>= 30.00)
+    {
+        printf("Você está com Obesidade");
+    }
     
     
     
