@@ -4,9 +4,9 @@ using namespace std;
 class APOSENTADORIA
 {
     //Definir os atributos/variaveis
-private: float valorinicial, valormensal, totalAplicado;
+private: float valorinicial, valormensal, totalAplicado,valorRetiradaMensal;
 private: float taxaMensal;
-private: int totalMeses;
+private: int totalMeses,tempoRendaMensal;
        //Cadastrar os valores
 public: void setValores(float vlIncial, float vlMensal, float vlTXMensal, int vlTMensal)
 {
@@ -16,6 +16,10 @@ public: void setValores(float vlIncial, float vlMensal, float vlTXMensal, int vl
     totalMeses = vlTMensal;
 
 };
+public: void setValorRetiradaMensal(float vlRetirada) 
+{
+    valorRetiradaMensal = vlRetirada;
+}
       //Implementar um metodo para calcular o valor da aplicação após N meses
 
 public: float calcularAplicacao()
@@ -37,7 +41,24 @@ public: float getSaldo()
 {
     return totalAplicado;
 }
+public: int calcularAposentadoria()
+{
+    float auxtotalAplicacao;
+    auxtotalAplicacao = totalAplicado;
+    tempoRendaMensal = 0;
+    while((auxtotalAplicacao >= 0) && (tempoRendaMensal < 1200))
+    {
+        auxtotalAplicacao = auxtotalAplicacao + (auxtotalAplicacao - valorRetiradaMensal) * (taxaMensal / 100) - valorRetiradaMensal;
+        tempoRendaMensal++;
+    }
 
+    return tempoRendaMensal;
+
+}
+public: int getTempoRendaMensal()
+{
+          return tempoRendaMensal;
+}
 
 
 };
@@ -55,10 +76,24 @@ int main()
     scanf_s("%f", &vlTXMensal);
     printf(" Digite os Meses: ");
     scanf_s("%i",&vltMensal);
+
     vaposentadoria.setValores(vlInicial, vlMensal, vlTXMensal, vltMensal);
     vaposentadoria.calcularAplicacao();
     totalAplicado = vaposentadoria.getSaldo();
-    
+
+
+
+
+    float vlRetiradaMensal;
+    int meses;
+
+    printf("\n Digite o valor de retirada mensal desejado: ");
+    scanf_s("%f", &vlRetiradaMensal);
+
+    vaposentadoria.setValorRetiradaMensal(vlRetiradaMensal);
+    meses = vaposentadoria.calcularAposentadoria();
+
+    printf("\n Você podera usufruir da aposentadoria por %d meses.\n", meses);
 
 
 
