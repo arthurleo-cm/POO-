@@ -36,7 +36,7 @@ public: float calcularAplicacao()
 
     return totalAplicado;
 };
-      //Recuperação de valores
+ 
 public: float getSaldo()
 {
     return totalAplicado;
@@ -59,7 +59,6 @@ public: int getTempoRendaMensal()
 {
           return tempoRendaMensal;
 }
-
 
 };
 int main()
@@ -94,9 +93,10 @@ int main()
     meses = vaposentadoria.calcularAposentadoria();
 
     printf("\n Você podera usufruir da aposentadoria por %d meses.\n", meses);
-
-
-
+    if(meses == 1200)
+    {
+        printf("Parabéns, Você é o homem mais rico do cemitério");
+    }
 
 
     return 0;
