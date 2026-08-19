@@ -120,10 +120,11 @@ int main()
 {
     INTEIROS obj;
     int n;
-
+   
     printf("REALIZANDO INTEIROS\n");
     printf("Digite um numero inteiro: ");
     scanf("%d", &n);
+    obj.setNumero(n);
     printf("Numero: %d\n", obj.getNumero());
     printf("Quantidade de digitos: %d\n", obj.NumeroDigitos(obj.getNumero()));
     printf("Soma dos digitos: %d\n", obj.SomaDigitos(obj.getNumero()));
