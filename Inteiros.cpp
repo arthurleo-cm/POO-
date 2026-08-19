@@ -27,7 +27,7 @@ class INTEIROS
     
     public: int NumeroDigitos(int numero)
     {
-       int digitos = 0;
+        digitos = 0;
         
        do {
             numero = numero/10;
@@ -83,7 +83,7 @@ public: int SomaDigitos(int numero)
     };
 public: int ProdutoDigitos(int numero)
 {
-    int produto = 1;
+    produto = 1;
     
     do
     {
