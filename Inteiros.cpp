@@ -13,125 +13,166 @@ Exercício de inteiros
 
 class INTEIROS
 {
-    private: int digitos,resultado,numero,digitopar,digitoimpar,soma,produto;
-    
-    public: void setNumero(int n)
-    {
-        numero = n;
-    };
-    
-    public: int getNumero()
-    {
-        return numero;
-    }
-    
-    public: int NumeroDigitos(int numero)
-    {
-       int digitos = 0;
-        
-       do {
-            numero = numero/10;
-            digitos++;
-            
-            
-            
-        }  while  (numero != 0);
-        
-        
-       return digitos;
+private: int digitos,resultado,numero,digitopar,digitoimpar,soma,produto;
+
+public:
+	void setNumero(int n)
+	{
+		numero = n;
+	};
+
+public:
+	int getNumero()
+	{
+		return numero;
+	}
+
+public:
+	int NumeroDigitos()
+	{
+		int auxnumero = numero;
+		digitos = 0;
+
+		do {
+			auxnumero = auxnumero/10;
+			digitos++;
+
+
+
+		}  while  (auxnumero != 0);
+
+
+		return digitos;
+
+	}
+public:
+	int getNumeroDigitos()
+	{
+
+		return digitos;
+
+	};
+
+
+
+
+public:
+	int SomaDigitos()
+	{
+		int auxnumero = numero;
+		soma = 0;
+		do {
+			digitos = auxnumero % 10;
+			soma = soma + digitos;
+			auxnumero = auxnumero / 10;
+		} while (auxnumero != 0);
+
+		return soma;
+	};
+public:
+	int getSomaDigitos()
+	{
+
+		return soma;
+
+	};
+public:
+	int ProdutoDigitos()
+	{
+		int auxnumero = numero;
+		produto = 1;
+
+		do
+		{
+			digitos = auxnumero % 10;
+			produto = produto * digitos;
+			auxnumero = auxnumero / 10;
+
+		} while(auxnumero != 0);
+
+		return produto;
+	}
+public:
+	int getProdutoDigitos()
+	{
+
+		return produto;
+	};
+
+public:
+	int NumeroDigitosPares()
+	{
+	    int auxnumero = numero;
+		digitopar = 0;
+		do{
+        digitos = auxnumero % 10;
        
-    }
-    public: int getNumeroDigitos()
-    {
-        
-        return digitos;
-        
-    };
-  
-    
-
-
-public: int SomaDigitos(int numero)
-{
-    digitopar = 0;
-    digitoimpar = 0;
-    soma = 0;
-    do{
-        digitos = numero % 10;
-        soma = soma + digitos;
-        
         if(digitos % 2 == 0)
         {
-            printf("O numero %d é par\n",digitos);
             digitopar++;
-        }
-        else
+        }  
+        
+        auxnumero = auxnumero / 10;
+        
+		} while(auxnumero != 0);
+		
+		
+		return digitopar;
+    
+	};
+
+public:
+	int NumeroDigitosImpares()
+	{
+	    int auxnumero = numero;
+    	digitoimpar = 0;
+		do{
+        digitos = auxnumero% 10;
+       
+        if(digitos % 2 != 0)
         {
-            printf("O numero %d é impar\n",digitos);
             digitoimpar++;
-        }
-        numero = numero / 10;
-    }while (numero != 0);
-    
-    return soma;
-};
- public: int getSomaDigitos()
-    {
+        }  
         
-        return soma;
+        auxnumero = auxnumero / 10;
         
-    };
-public: int ProdutoDigitos(int numero)
-{
-    produto = 1;
-    
-    do
-    {
-        digitos = numero % 10;
-        produto = produto * digitos;
-        numero = numero / 10;
-        
-    }while(numero != 0);
-    
-    return produto;
-}
- public: int getProdutoDigitos()
-    {
-        
-        return produto;
-    };
-    
-    
-public: int getDigitoPar()
-{
-    return digitopar;
-}
-
-public: int getDigitoImpar()
-{
+	} while(auxnumero != 0);
+	
     return digitoimpar;
-}
+};
 
+public:
+	int getDigitoPar()
+	{
+		return digitopar;
+	}
 
+public:
+	int getDigitoImpar()
+	{
+		return digitoimpar;
+	}
 
 };
 
 int main()
 {
-    INTEIROS obj;
-    int n;
-   
-    printf("REALIZANDO INTEIROS\n");
-    printf("Digite um numero inteiro: ");
-    scanf("%d", &n);
-    obj.setNumero(n);
-    printf("Numero: %d\n", obj.getNumero());
-    printf("Quantidade de digitos: %d\n", obj.NumeroDigitos(obj.getNumero()));
-    printf("Soma dos digitos: %d\n", obj.SomaDigitos(obj.getNumero()));
-    printf("O Produto dos digitos: %d\n", obj.ProdutoDigitos(obj.getNumero()));
-    printf("Quantidade de digitos pares: %d\n", obj.getDigitoPar());
-    printf("Quantidade de digitos impares: %d\n", obj.getDigitoImpar());
-    
+	INTEIROS vinteiros;
+	int n;
 
-    return 0;
+	printf("REALIZANDO INTEIROS\n");
+	printf("Digite um numero inteiro: ");
+	scanf("%d", &n);
+	vinteiros.setNumero(n);
+	printf("Numero: %d\n", vinteiros.getNumero());
+	printf("Quantidade de digitos: %d\n", vinteiros.NumeroDigitos());
+	printf("Soma dos digitos: %d\n", vinteiros.SomaDigitos());
+	printf("O Produto dos digitos: %d\n", vinteiros.ProdutoDigitos());
+	vinteiros.NumeroDigitosImpares();
+	vinteiros.NumeroDigitosPares();
+	printf("Quantidade de digitos pares: %d\n", vinteiros.getDigitoPar());
+	printf("Quantidade de digitos impares: %d\n", vinteiros.getDigitoImpar());
+
+
+	return 0;
 }
