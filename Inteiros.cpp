@@ -27,7 +27,7 @@ class INTEIROS
     
     public: int NumeroDigitos(int numero)
     {
-        digitos = 0;
+       int digitos = 0;
         
        do {
             numero = numero/10;
@@ -119,9 +119,11 @@ public: int getDigitoImpar()
 int main()
 {
     INTEIROS obj;
+    int n;
 
-    obj.setNumero(24680);
-
+    printf("REALIZANDO INTEIROS\n");
+    printf("Digite um numero inteiro: ");
+    scanf("%d", &n);
     printf("Numero: %d\n", obj.getNumero());
     printf("Quantidade de digitos: %d\n", obj.NumeroDigitos(obj.getNumero()));
     printf("Soma dos digitos: %d\n", obj.SomaDigitos(obj.getNumero()));
