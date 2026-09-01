@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
@@ -10,17 +11,26 @@ int main()
     //definir o tamanho do buffer
     char buffer[1000];
     
+    float soma,media;
+    int contnotas;
+    
     //abrir o arquivo para leitura
     arq=fopen("notas001.txt","rt");
     
     //ler os dados e imprimir
+    contnotas = 0;
+    soma = 0;
     
     while(!feof(arq))
     {
         //efetuar a leitura do arquivo
         fgets(buffer,100,arq);
         printf("%s",buffer);
+        soma = soma+atof(buffer);
+        contnotas++;
     }
+    media = soma/contnotas;
+    printf("\nMedia: %7.2f");
     fclose(arq);
     printf("\nOBRIGADO PELA A UTILIZAÇÃO\n");
     
