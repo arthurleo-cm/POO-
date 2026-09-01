@@ -1,0 +1,31 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <string.h>
+int main()
+{
+    float notas[50] = {9.0,7.8,10,8.9,2.5};
+    int contanotas = 5;
+    
+    FILE *arq;
+   
+    char buffer[1000];
+    
+   
+    arq=fopen("notas001.txt","wt");
+    
+    //ler os dados e imprimir
+    
+    for(int pos = 0;pos <contanotas-1;pos++)
+    {
+        fprintf(arq,"%7.2f\n",notas[pos]);
+    }
+    fprintf(arq,"%7.2f",notas[contanotas-1]);
+    fclose(arq);
+    printf("\nOBRIGADO PELA A UTILIZAÇÃO\n");
+    
+    
+    
+    return 0;
+}
