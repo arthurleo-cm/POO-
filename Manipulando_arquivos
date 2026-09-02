@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <string.h>
+//desenvolver uma aplicacao de softea para
+//ler os dados do arquivo
+//calcular o imc, a media de idade
+//o aluno mais alto e o mais baixo
+// atoi() converter asc/string para inteiro
+// atof() coberter asc/string para float
+int main()
+{
+    char buffer[1000];
+    char nome[1000];
+    float peso, altura, imc,mediapeso,medialtu,somaPeso= 0,somaAltura = 0;
+    int cont,contpessoas = 0;
+    float alturabaixo= 10000,alturaalto= -1;
+    char nomeBaixo[1000],nomeAlto[1000];
+    //[1]CRIAR PONTEIRO DO ARQUIVO
+    FILE *arq;
+    
+    //[2]ABRIR O ARQUIVO PARA OPERAÇÃO
+    arq=fopen("alunos005.txt","rt");
+    int tam;
+    //[3] LER OS DADOS DO ARQUIVO
+    while(!feof(arq))
+    {
+        
+        
+        fgets(buffer,500,arq);
+        tam = strlen(buffer);
+        buffer[tam - 1] = '\0';
+        strcpy(nome,buffer);
+        fgets(buffer,500,arq);
+        altura = atof(buffer);
+        fgets(buffer,500,arq);
+        peso = atof(buffer);
+        imc = (peso / (altura * altura));
+        cont;
+        contpessoas++;
+        printf("\nNOME: %-10s ALTURA: %7.2f   PESO: %7.2f  IMC:%7.2f",nome,altura,peso,imc);
+        somaAltura = somaAltura+altura;
+        somaPeso = somaPeso+peso;
+        
+       if(altura>alturaalto)
+       {
+           alturaalto = altura;
+           strcpy(nomeAlto,nome);
+       }
+        if(altura < alturabaixo)
+        {
+            alturabaixo = altura;
+            strcpy(nomeBaixo,nome);
+        }
+    }
+    printf("\nA quantidade é %d pessoas",contpessoas);
+    mediapeso = somaPeso / contpessoas;
+    medialtu = somaAltura / contpessoas;
+    printf("\nA media de peso: %7.2f",mediapeso);
+    printf("\nA medida de altura: %7.2f",medialtu);
+    printf("\n ALUNO MENOR ALTURA: %-20s    ALTURA:%7.2f",nomeBaixo,alturabaixo);
+     printf("\n ALUNO MAIOR ALTURA: %-20s    ALTURA:%7.2f",nomeAlto,alturaalto);
+    //[4]FECHAR O ARQUIVO
+    fclose(arq);
+    printf("\nOBRIGADO POR UTILIZAR O SOFTWARE TABAJARA");
+    
+    
+    return 0;
+}
